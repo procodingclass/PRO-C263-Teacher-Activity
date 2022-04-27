@@ -1,0 +1,72 @@
+{
+  "version": 1,
+  "author": "Gautam Ahuja",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-esp32-devkit-v1", "id": "esp", "top": 18.67, "left": -80.67, "attrs": {} },
+    {
+      "type": "wokwi-hc-sr04",
+      "id": "ultrasonic1",
+      "top": -4.76,
+      "left": -272.57,
+      "attrs": { "distance": "230" }
+    },
+    {
+      "type": "wokwi-led-bar-graph",
+      "id": "bargraph1",
+      "top": 59.05,
+      "left": 136.21,
+      "attrs": { "color": "lime" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": 54.02,
+      "left": 195.67,
+      "attrs": { "value": "220" }
+    },
+    {
+      "type": "wokwi-buzzer",
+      "id": "bz1",
+      "top": 24.45,
+      "left": -348.23,
+      "attrs": { "volume": "0.1" }
+    }
+  ],
+  "connections": [
+    [ "esp:TX0", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX0", "$serialMonitor:TX", "", [] ],
+    [ "esp:D23", "bargraph1:A1", "green", [ "h54.9", "v0.69" ] ],
+    [ "esp:D22", "bargraph1:A2", "green", [ "h44.96", "v-2.99" ] ],
+    [ "esp:D21", "bargraph1:A3", "green", [ "h0" ] ],
+    [ "esp:D19", "bargraph1:A4", "green", [ "h0" ] ],
+    [ "esp:D18", "bargraph1:A5", "green", [ "h0" ] ],
+    [ "esp:D5", "bargraph1:A6", "green", [ "h0" ] ],
+    [ "esp:D4", "bargraph1:A7", "green", [ "h67.55", "v-14.01" ] ],
+    [ "esp:D2", "bargraph1:A8", "green", [ "h75.68", "v-18.09" ] ],
+    [ "esp:D15", "bargraph1:A9", "green", [ "h83.81", "v-17.25" ] ],
+    [
+      "esp:D13",
+      "bargraph1:A10",
+      "green",
+      [ "h-24.04", "v86.63", "h139.11", "v-70.46", "h76.78", "v-23.49" ]
+    ],
+    [ "bargraph1:C1", "bargraph1:C2", "#8f4814", [ "v0" ] ],
+    [ "bargraph1:C3", "bargraph1:C4", "#8f4814", [ "h0" ] ],
+    [ "bargraph1:C5", "bargraph1:C6", "#8f4814", [ "h0" ] ],
+    [ "bargraph1:C7", "bargraph1:C8", "#8f4814", [ "h0" ] ],
+    [ "bargraph1:C9", "bargraph1:C10", "#8f4814", [ "h0" ] ],
+    [ "bargraph1:C2", "bargraph1:C3", "#8f4814", [ "h12.2", "v9.2", "h-0.94" ] ],
+    [ "bargraph1:C1", "r1:1", "#8f4814", [ "v0" ] ],
+    [ "bargraph1:C4", "bargraph1:C5", "#8f4814", [ "h12.2", "v9.44", "h-1.88" ] ],
+    [ "bargraph1:C7", "bargraph1:C6", "#8f4814", [ "h11.26", "v-9.64", "h2.2" ] ],
+    [ "bargraph1:C8", "bargraph1:C9", "#8f4814", [ "h10.32", "v8.99", "h0.31" ] ],
+    [ "esp:GND.1", "r1:2", "#8f4814", [ "h0" ] ],
+    [ "esp:GND.2", "ultrasonic1:GND", "black", [ "h0" ] ],
+    [ "ultrasonic1:VCC", "esp:3V3", "red", [ "v138.79", "h232.73", "v-49.83" ] ],
+    [ "ultrasonic1:TRIG", "esp:D12", "green", [ "v0" ] ],
+    [ "ultrasonic1:ECHO", "esp:D14", "yellow", [ "v0" ] ],
+    [ "bz1:1", "esp:GND.2", "black", [ "v0" ] ],
+    [ "bz1:2", "esp:D26", "red", [ "v0" ] ]
+  ]
+}
